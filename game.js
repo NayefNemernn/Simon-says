@@ -14,6 +14,8 @@ document.addEventListener('keypress', () => {
     started = true;
   }
 });
+
+//creating the sound map to use for blocks depending on colors
 const soundMap = {
   "green": new Audio("sounds/green.mp3"),
   "red": new Audio("sounds/red.mp3"),
@@ -21,3 +23,16 @@ const soundMap = {
   "blue": new Audio("sounds/blue.mp3"),
   "wrong": new Audio("sounds/wrong.mp3")
 };
+// Handle button clicks 
+document.querySelectorAll('.btn').forEach(button => {
+  button.addEventListener('click', function() {
+    const userChosenColor = this.id;
+    userClickedPattern.push(userChosenColor);
+
+    playSound(userChosenColor);
+    animatePress(userChosenColor);
+
+    checkAnswer(userClickedPattern.length - 1);
+    
+  });
+});
