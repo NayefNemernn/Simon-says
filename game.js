@@ -36,3 +36,17 @@ document.querySelectorAll('.btn').forEach(button => {
     
   });
 });
+function nextSequence() {
+  userClickedPattern = [];
+  level++;
+  document.querySelector("#level-title").textContent = `Level ${level}`;
+
+  const randomNumber = Math.floor(Math.random() * 4);
+  const randomChosenColor = buttonColors[randomNumber];
+  gamePattern.push(randomChosenColor);
+//flash buttons at begining 
+// const btnToFlash =document.querySelector(`#${randomChosenColor}`)
+//  console.log(btnToFlash)
+
+playSequence(randomChosenColor);
+}
